@@ -27,4 +27,12 @@ describe("Rectangles...", () =>{
         expect(r1.hasBiggerAreaThan(r2)).toBe(false);
         expect(r2.hasBiggerAreaThan(r1)).toBe(true);
     });
+
+    test("Can find biggest from a list", () => {
+        expect(Rectangle.WithLargestArea()).toBe(undefined)
+        expect(Rectangle.WithLargestArea([])).toBe(undefined)
+        expect(Rectangle.WithLargestArea([
+            new Rectangle(2,2)
+        ]).area()).toBe(4)
+    })
 })

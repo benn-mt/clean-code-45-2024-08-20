@@ -19,6 +19,13 @@ class Rectangle{
     hasBiggerAreaThan(other){
         return this.area() > other.area();
     }
+
+    static WithLargestArea(rectangles){
+        if (!rectangles) {
+            return undefined;
+        }
+        return rectangles[0];
+    }
 }
 
 module.exports = {Rectangle}
