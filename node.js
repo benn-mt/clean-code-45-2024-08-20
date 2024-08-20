@@ -1,6 +1,6 @@
 class Node{
     canReach(other){
-        return false;
+        return other == this;
     }
 }
 
