@@ -24,32 +24,30 @@ class Rectangle{
         return this.perimeter() > other.perimeter();
     }
 
-    static WithLargestArea(rectangles){
+    static Best(rectangles, isBetterThan){
         if (!rectangles) {
             return undefined;
         }
         var champion = rectangles[0];
         for (var i = 1; i < rectangles.length; i++) {
             var challenger = rectangles[i];
-            if (challenger.hasBiggerAreaThan(champion)){
+            if (isBetterThan(challenger, champion)){
                 champion = challenger;
             }
         }
         return champion;
     }
 
+    static WithLargestArea(rectangles){
+        return Rectangle.Best(rectangles, (challenger, champion) => {
+            return challenger.hasBiggerAreaThan(champion);
+        });
+    }
+
     static WithLargestPerimeter(rectangles){
-        if (!rectangles) {
-            return undefined;
-        }
-        var champion = rectangles[0];
-        for (var i = 1; i < rectangles.length; i++) {
-            var challenger = rectangles[i];
-            if (challenger.hasBiggerPerimeterThan(champion)){
-                champion = challenger;
-            }
-        }
-        return champion;
+        return Rectangle.Best(rectangles, (challenger, champion) => {
+            return challenger.hasBiggerPerimeterThan(champion);
+        });
     }
 }
 
