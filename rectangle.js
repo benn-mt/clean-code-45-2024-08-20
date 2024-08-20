@@ -11,6 +11,10 @@ class Rectangle{
     area(){
         return this._length * this._width;
     }
+
+    perimeter(){
+        return 0;
+    }
 }
 
 module.exports = {Rectangle}

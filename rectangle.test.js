@@ -13,4 +13,8 @@ describe("Rectangles...", () =>{
     test("Can be square", () => {
         expect(Rectangle.Square(3).area()).toEqual(9)
     });
+
+    test("Can caluclate perimeter", () => {
+        expect(new Rectangle(0,0).perimeter()).toEqual(0);
+    });
 })
