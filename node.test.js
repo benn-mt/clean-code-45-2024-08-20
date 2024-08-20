@@ -11,4 +11,11 @@ describe ('Nodes....', () => {
         var a = new Node();
         expect(g.canReach(a)).toBe(false);
     });
+
+    test('Node can reach connected neighbour', () => {
+        var a = new Node();
+        var b = new Node();
+        b.linkTo(a);
+        expect(b.canReach(a)).toBe(true);
+    });
 })
