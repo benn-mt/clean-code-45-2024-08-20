@@ -16,5 +16,8 @@ describe("Rectangles...", () =>{
 
     test("Can caluclate perimeter", () => {
         expect(new Rectangle(0,0).perimeter()).toEqual(0);
+        expect(new Rectangle(5,0).perimeter()).toEqual(10);
+        expect(new Rectangle(0,4).perimeter()).toEqual(8);
+        expect(new Rectangle(3,7).perimeter()).toEqual(20);
     });
 })
