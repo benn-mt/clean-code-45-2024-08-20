@@ -28,7 +28,7 @@ describe("Rectangles...", () =>{
         expect(r2.hasBiggerAreaThan(r1)).toBe(true);
     });
 
-    test("Can find biggest from a list", () => {
+    test("Can find biggest rectangle by area from a list", () => {
         expect(Rectangle.WithLargestArea()).toBe(undefined);
         expect(Rectangle.WithLargestArea([])).toBe(undefined);
         expect(Rectangle.WithLargestArea([
@@ -49,5 +49,28 @@ describe("Rectangles...", () =>{
             new Rectangle(1,1),
             new Rectangle(3,3),
         ]).area()).toBe(9);
+    })
+
+    test("Can find biggest rectangle by perimeter from a list", () => {
+        expect(Rectangle.WithLargestPerimeter()).toBe(undefined);
+        expect(Rectangle.WithLargestPerimeter([])).toBe(undefined);
+        expect(Rectangle.WithLargestPerimeter([
+            new Rectangle(2,2)
+        ]).perimeter()).toBe(8);
+        expect(Rectangle.WithLargestPerimeter([
+            new Rectangle(2,2),
+            new Rectangle(2,3)
+        ]).perimeter()).toBe(10);
+        expect(Rectangle.WithLargestPerimeter([
+            new Rectangle(2,2),
+            new Rectangle(2,3),
+            new Rectangle(1,1),
+        ]).perimeter()).toBe(10);
+        expect(Rectangle.WithLargestPerimeter([
+            new Rectangle(2,2),
+            new Rectangle(2,3),
+            new Rectangle(1,1),
+            new Rectangle(3,3),
+        ]).perimeter()).toBe(12);
     })
 })

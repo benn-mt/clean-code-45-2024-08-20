@@ -20,6 +20,10 @@ class Rectangle{
         return this.area() > other.area();
     }
 
+    hasBiggerPerimeterThan(other){
+        return this.perimeter() > other.perimeter();
+    }
+
     static WithLargestArea(rectangles){
         if (!rectangles) {
             return undefined;
@@ -28,6 +32,20 @@ class Rectangle{
         for (var i = 1; i < rectangles.length; i++) {
             var challenger = rectangles[i];
             if (challenger.hasBiggerAreaThan(champion)){
+                champion = challenger;
+            }
+        }
+        return champion;
+    }
+
+    static WithLargestPerimeter(rectangles){
+        if (!rectangles) {
+            return undefined;
+        }
+        var champion = rectangles[0];
+        for (var i = 1; i < rectangles.length; i++) {
+            var challenger = rectangles[i];
+            if (challenger.hasBiggerPerimeterThan(champion)){
                 champion = challenger;
             }
         }
