@@ -24,7 +24,14 @@ class Rectangle{
         if (!rectangles) {
             return undefined;
         }
-        return rectangles[0];
+        var champion = rectangles[0];
+        for (var i = 1; i < rectangles.length; i++) {
+            var challenger = rectangles[i];
+            if (challenger.area() > champion.area()){
+                return challenger;
+            }
+        }
+        return champion;
     }
 }
 

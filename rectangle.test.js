@@ -29,10 +29,14 @@ describe("Rectangles...", () =>{
     });
 
     test("Can find biggest from a list", () => {
-        expect(Rectangle.WithLargestArea()).toBe(undefined)
-        expect(Rectangle.WithLargestArea([])).toBe(undefined)
+        expect(Rectangle.WithLargestArea()).toBe(undefined);
+        expect(Rectangle.WithLargestArea([])).toBe(undefined);
         expect(Rectangle.WithLargestArea([
             new Rectangle(2,2)
-        ]).area()).toBe(4)
+        ]).area()).toBe(4);
+        expect(Rectangle.WithLargestArea([
+            new Rectangle(2,2),
+            new Rectangle(2,3)
+        ]).area()).toBe(6);
     })
 })
