@@ -20,4 +20,11 @@ describe("Rectangles...", () =>{
         expect(new Rectangle(0,4).perimeter()).toEqual(8);
         expect(new Rectangle(3,7).perimeter()).toEqual(20);
     });
+
+    test("Can be compared", () => {
+        var r1 = new Rectangle(0,0);
+        var r2 = new Rectangle(1,1);
+        expect(r1.hasBiggerAreaThan(r2)).toBe(false);
+        expect(r2.hasBiggerAreaThan(r1)).toBe(true);
+    });
 })
