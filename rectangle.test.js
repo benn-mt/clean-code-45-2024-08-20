@@ -38,5 +38,16 @@ describe("Rectangles...", () =>{
             new Rectangle(2,2),
             new Rectangle(2,3)
         ]).area()).toBe(6);
+        expect(Rectangle.WithLargestArea([
+            new Rectangle(2,2),
+            new Rectangle(2,3),
+            new Rectangle(1,1),
+        ]).area()).toBe(6);
+        expect(Rectangle.WithLargestArea([
+            new Rectangle(2,2),
+            new Rectangle(2,3),
+            new Rectangle(1,1),
+            new Rectangle(3,3),
+        ]).area()).toBe(9);
     })
 })
