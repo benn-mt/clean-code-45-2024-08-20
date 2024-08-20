@@ -6,7 +6,7 @@ describe ('Nodes....', () => {
         expect(g.canReach(g)).toBe(true);
     });
 
-    test('Node can reach itself', () => {
+    test('Node can not reach a node it is not connected to', () => {
         var g = new Node();
         var a = new Node();
         expect(g.canReach(a)).toBe(false);
