@@ -9,4 +9,8 @@ describe("Rectangles...", () =>{
         expect(new Rectangle(0,6).area()).toEqual(0);
         expect(new Rectangle(0,0).area()).toEqual(0);
     });
+
+    test("Can be square", () => {
+        expect(Rectangle.Square(3).area()).toEqual(9)
+    });
 })

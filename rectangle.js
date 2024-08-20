@@ -4,6 +4,10 @@ class Rectangle{
         this._width = width;
     }
 
+    static Square = (width) => {
+        return new Rectangle(width, width);
+    }
+
     area(){
         return this._length * this._width;
     }
