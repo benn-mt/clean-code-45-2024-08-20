@@ -38,16 +38,20 @@ class Rectangle{
         return champion;
     }
 
+    static _BEST_BY_AREA = (challenger, champion) => {
+        return challenger.hasBiggerAreaThan(champion);
+    }
+
+    static _BEST_BY_PERIMETER = (challenger, champion) => {
+        return challenger.hasBiggerPerimeterThan(champion);
+    }
+
     static WithLargestArea(rectangles){
-        return Rectangle.Best(rectangles, (challenger, champion) => {
-            return challenger.hasBiggerAreaThan(champion);
-        });
+        return Rectangle.Best(rectangles, Rectangle._BEST_BY_AREA);
     }
 
     static WithLargestPerimeter(rectangles){
-        return Rectangle.Best(rectangles, (challenger, champion) => {
-            return challenger.hasBiggerPerimeterThan(champion);
-        });
+        return Rectangle.Best(rectangles, Rectangle._BEST_BY_PERIMETER);
     }
 }
 
