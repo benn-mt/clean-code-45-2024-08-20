@@ -1,6 +1,11 @@
 class Rectangle{
+    constructor(length, width){
+        this._length = length;
+        this._width = width;
+    }
+
     area(){
-        return 0;
+        return this._length * this._width;
     }
 }
 
