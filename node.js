@@ -29,14 +29,21 @@ class Node{
             return Node.UNREACHABLE;
         }
         visitedNodes.push(this);
+        var bestPathToDestination = undefined;
         for (var i = 0; i < this._children.length; i++){
             var child = this._children[i];
             var newVisitedNodes = child._pathTo(destination, [...visitedNodes]);
             if (newVisitedNodes !== Node.UNREACHABLE){
-                return newVisitedNodes;
+                if (bestPathToDestination == undefined || bestPathToDestination.length > newVisitedNodes.length){
+                    bestPathToDestination = newVisitedNodes;
+                }
             }
         }
-        return Node.UNREACHABLE;
+
+        if (bestPathToDestination == undefined) {
+            return Node.UNREACHABLE;
+        }
+        return bestPathToDestination;
     }
     
     linkTo(other){

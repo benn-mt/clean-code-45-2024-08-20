@@ -72,8 +72,8 @@ describe ('Nodes....', () => {
         expect(b.hopCount(a)).toBe(1);
         expect(() => {a.hopCount(b)}).toThrow("Node is unreachable");
         expect(b.hopCount(d)).toBe(2);
-        expect(b.hopCount(e)).toBe(3);
+        expect(b.hopCount(e)).toBe(2);
         expect(b.hopCount(f)).toBe(1);
-        expect(c.hopCount(f)).toBe(4);
+        expect(c.hopCount(f)).toBe(3);
     })
 })
