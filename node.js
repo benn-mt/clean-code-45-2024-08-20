@@ -1,5 +1,5 @@
 class Node{
-    static UNREACHABLE = undefined;
+    static UNREACHABLE = Number.MAX_VALUE;
 
     constructor(){
         this._children = []
@@ -39,7 +39,6 @@ class Node{
         return Node.UNREACHABLE;
     }
     
-
     linkTo(other){
         this._children.push(other);
     }
