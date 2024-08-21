@@ -3,13 +3,13 @@ class Node{
         this._children = []
     }
 
-    canReach(other){
+    canReach(destination){
         var visitedNodes = [];
-        return this._canReach(other, visitedNodes);
+        return this._canReach(destination, visitedNodes);
     }
 
-    _canReach(other, visitedNodes){
-        if (other == this){
+    _canReach(destination, visitedNodes){
+        if (destination == this){
             return true;
         }
         if (visitedNodes.includes(this)){
@@ -18,11 +18,15 @@ class Node{
         visitedNodes.push(this);
         for (var i = 0; i < this._children.length; i++){
             var child = this._children[i];
-            if (child._canReach(other, visitedNodes)){
+            if (child._canReach(destination, visitedNodes)){
                 return true;
             }
         }
         return false;
+    }
+
+    hopCount(destination){
+        return 0;
     }
 
     linkTo(other){

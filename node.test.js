@@ -48,4 +48,9 @@ describe ('Nodes....', () => {
         e.linkTo(f);
         expect(b.canReach(f)).toBe(true);
     });
+
+    test('Can count hops', ()=>{
+        var g = new Node();
+        expect(g.hopCount(g)).toBe(0);
+    })
 })
