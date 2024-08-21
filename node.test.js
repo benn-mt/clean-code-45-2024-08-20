@@ -50,7 +50,30 @@ describe ('Nodes....', () => {
     });
 
     test('Can count hops', ()=>{
+        var a = new Node();
+        var b = new Node();
+        var c = new Node();
+        var d = new Node();
+        var e = new Node();
+        var f = new Node();
         var g = new Node();
+        b.linkTo(a);
+        b.linkTo(c);
+        b.linkTo(f);
+        c.linkTo(d);
+        c.linkTo(d);
+        c.linkTo(e);
+        d.linkTo(e);
+        e.linkTo(b);
+        
+
         expect(g.hopCount(g)).toBe(0);
+        expect(() => {g.hopCount(a)}).toThrow("Node is unreachable");
+        expect(b.hopCount(a)).toBe(1);
+        expect(() => {a.hopCount(b)}).toThrow("Node is unreachable");
+        expect(b.hopCount(d)).toBe(2);
+        expect(b.hopCount(e)).toBe(3);
+        expect(b.hopCount(f)).toBe(1);
+        expect(c.hopCount(f)).toBe(4);
     })
 })
