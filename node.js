@@ -1,5 +1,5 @@
 class Node{
-    static UNREACHABLE = new Node();
+    static UNREACHABLE = undefined;
 
     constructor(){
         this._children = []
@@ -28,27 +28,26 @@ class Node{
     }
 
     hopCount(destination){
-        var count = this._hopCount(destination, [], 0);
-        if (count == Node.UNREACHABLE) {
+        var visitedNodes = this._pathTo(destination, []);
+        if (visitedNodes == Node.UNREACHABLE) {
             throw new Error("Node is unreachable");
         }
-        return count;
+        return visitedNodes.length;
     }
 
-    _hopCount(destination, visitedNodes, currentHopCount){
+    _pathTo(destination, visitedNodes){
         if (this === destination){
-            return currentHopCount;
+            return visitedNodes;
         }
         if (visitedNodes.includes(this)){
             return Node.UNREACHABLE;
         }
         visitedNodes.push(this);
-        currentHopCount++;
         for (var i = 0; i < this._children.length; i++){
             var child = this._children[i];
-            var newHopCount = child._hopCount(destination, visitedNodes, currentHopCount);
-            if (newHopCount !== Node.UNREACHABLE){
-                return newHopCount;
+            var newVisitedNodes = child._pathTo(destination, [...visitedNodes]);
+            if (newVisitedNodes !== Node.UNREACHABLE){
+                return newVisitedNodes;
             }
         }
         return Node.UNREACHABLE;
